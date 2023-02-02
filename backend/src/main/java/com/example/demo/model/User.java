@@ -10,18 +10,14 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 @ToString
-public class Note {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
-    private String title;
-    private String text;
-    private String category;
-    private String textColor;
-    private String color;
-    private Boolean pinned;
+    private String name;
+    private String password;
 
 }
 

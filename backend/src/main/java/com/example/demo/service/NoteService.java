@@ -15,5 +15,17 @@ public class NoteService {
 
     public List<Note> getAllNotes() { return noteRepository.findAll(); }
 
+    public List<Note> getNotesByCategory(String category) { return noteRepository.findAllByCategory(category); }
+
+    public Note saveOrUpdate(Note note)
+    {
+        return noteRepository.save(note);
+    }
+
+    public void deleteNote(int id)
+    {
+        noteRepository.deleteById(id);
+    }
+
     public Optional<Note> getNoteById(Integer id) { return noteRepository.findById(id); }
 }

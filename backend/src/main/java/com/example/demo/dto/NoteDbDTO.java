@@ -5,8 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class NoteDTO {
-    private int id;
+public class NoteDbDTO {
     private String title;
     private String text;
     private String category;

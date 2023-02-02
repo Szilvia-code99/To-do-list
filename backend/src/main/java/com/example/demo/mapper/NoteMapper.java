@@ -15,7 +15,6 @@ public class NoteMapper {
                 note.getTitle(),
                 note.getText(),
                 note.getCategory(),
-                note.getOwnerId(),
                 note.getTextColor(),
                 note.getColor(),
                 note.getPinned()
