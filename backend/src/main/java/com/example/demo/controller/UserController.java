@@ -22,8 +22,8 @@ public class UserController {
 
     @CrossOrigin
     @GetMapping("/users")
-    public List<UserDTO> getAllUsers() {
-        return UserMapper.modelsToDtos(userService.getAllUsers());
+    public List<UserDTO> getAllUsers() throws ClassNotFoundException {
+        return userService.getAllUsers();
     }
 
     @CrossOrigin

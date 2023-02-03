@@ -3,6 +3,9 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,6 +25,14 @@ public class Note {
     private String textColor;
     private String color;
     private Boolean pinned;
+
+//    @OneToMany(
+//            mappedBy = "note",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<Log> logList = new ArrayList<>();
+
 
 }
 

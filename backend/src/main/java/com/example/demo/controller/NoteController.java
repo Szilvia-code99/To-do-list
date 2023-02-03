@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.NoteDTO;
-import com.example.demo.dto.NoteDbDTO;
 import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.mapper.NoteMapper;
 import com.example.demo.model.Note;
@@ -9,6 +8,7 @@ import com.example.demo.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -19,14 +19,14 @@ public class NoteController {
 
     @CrossOrigin
     @GetMapping("/notes")
-    public List<NoteDTO> getAllNotes() {
-        return NoteMapper.modelsToDtos(noteService.getAllNotes());
+    public List<NoteDTO> getAllNotes() throws SQLException, ClassNotFoundException {
+        return noteService.getAllNotes();
     }
 
     @CrossOrigin
     @GetMapping("/notes/{category}")
-    public List<NoteDTO> getNotesByCategory(@PathVariable String category) {
-        return NoteMapper.modelsToDtos(noteService.getNotesByCategory(category));
+    public List<NoteDTO> getNotesByCategory(@PathVariable String category) throws ClassNotFoundException {
+        return noteService.getNotesByCategory(category);
     }
 
     @CrossOrigin
@@ -40,20 +40,19 @@ public class NoteController {
 
     @CrossOrigin
     @PutMapping("/note")
-    public Note updateNoteCategory(@RequestBody Note note) {
-       return noteService.saveOrUpdate(note);
+    public void updateNoteCategory(@RequestBody NoteDTO noteDTO) throws SQLException, ClassNotFoundException {
+         noteService.updateNote(noteDTO);
     }
 
     @CrossOrigin
     @PostMapping("/note")
-    public Note addNote(@RequestBody Note note) {
-        noteService.saveOrUpdate(note);
-        return note;
+    public void addNote(@RequestBody NoteDTO noteDTO) throws ClassNotFoundException {
+        noteService.addNote(noteDTO);
     }
 
     @CrossOrigin
     @DeleteMapping("/note/{id}")
-    public void deleteNote(@PathVariable int id) {
+    public void deleteNote(@PathVariable int id) throws ClassNotFoundException {
         noteService.deleteNote(id);
     }
 }
