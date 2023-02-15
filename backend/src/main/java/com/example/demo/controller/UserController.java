@@ -28,17 +28,14 @@ public class UserController {
 
     @CrossOrigin
     @GetMapping("/user/{id}")
-    public UserDTO getUserById(@PathVariable int id) {
-        if (userService.getUserById(id).isPresent()) {
-            return UserMapper.modelToDto(userService.getUserById(id).get());
-        }
-        throw new EntityNotFoundException(id);
+    public UserDTO getUserById(@PathVariable int id) throws ClassNotFoundException {
+        return UserMapper.modelToDto(userService.getUserById(id));
+
     }
 
     @CrossOrigin
     @PutMapping("/user/{id}")
-    public User updateUserCategory(@RequestBody User user) {
-        userService.saveOrUpdate(user);
-        return user;
+    public List<UserDTO> getAllUsers(@RequestBody int id) throws ClassNotFoundException {
+        return userService.getAllUsers();
     }
 }

@@ -31,7 +31,14 @@ public class JdbcHelper {
 
     public static final String SELECT_NOTES_BY_CATEGORY_SQL = "SELECT id, category, color, text_color,title,pinned,text FROM " + "note where category = ?";
 
+    public static final String SELECT_CATEGORY_OF_NOTE = "SELECT category FROM " + "note where id = ?";
+
+    public static final String SELECT_NOTE_BY_ID = "SELECT * FROM " + "note where id = ?";
+
+    public static final String SELECT_USER_BY_ID = "SELECT * FROM " + "user where id = ?";
     public static final String SELECT_USERS_SQL = "SELECT * FROM " + "user";
+
+    public static final String SELECT_LOGS_SQL = "SELECT * FROM " + "log";
 
     public static void printSQLException(SQLException ex) {
         for (Throwable e: ex) {

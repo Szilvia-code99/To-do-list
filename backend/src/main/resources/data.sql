@@ -5,3 +5,4 @@ INSERT INTO note (title, text, category,  text_color, color, pinned) VALUES ('WO
 INSERT INTO note (title, text, category,  text_color, color, pinned) VALUES ('UNI', 'make project','Done', 'orange','yellow',0);
 
 INSERT INTO user (name, password) VALUES ('user1','1');
+INSERT INTO user (name, password) VALUES ('user2','2');

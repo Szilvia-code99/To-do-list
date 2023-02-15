@@ -17,7 +17,7 @@ public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private int id;
+    private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("id")
     private User user;
@@ -31,7 +31,6 @@ public class Log {
         this.id=id;
         this.completedOn=date;
     }
-
 
 //    public void addUser(User user) {
 //        this.user.add(new User(user.getId(),user.getName(), user.getPassword()));

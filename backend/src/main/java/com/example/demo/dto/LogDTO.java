@@ -5,10 +5,13 @@ import com.example.demo.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 public class LogDTO {
-    private int id;
+    private Integer id;
     private String userId;
     private String noteId;
+    private String completedOn;
 }

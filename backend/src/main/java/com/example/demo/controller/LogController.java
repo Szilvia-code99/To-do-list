@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.LogDTO;
-import com.example.demo.exception.EntityNotFoundException;
+
 import com.example.demo.mapper.LogMapper;
 import com.example.demo.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,11 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-//    @CrossOrigin
-//    @GetMapping("/logs")
-//    public List<LogDTO> getAllLogs() {
-//        return LogMapper.modelsToDtos(logService.getAllLogs());
-//    }
+    @CrossOrigin
+    @GetMapping("/logs")
+    public List<LogDTO> getAllLogs() throws ClassNotFoundException {
+        return logService.getAllLogs();
+    }
 
 //    @CrossOrigin
 //    @GetMapping("/log/{id}")
@@ -37,9 +37,9 @@ public class LogController {
         logService.saveOrUpdate(log);
     }
 
-    @CrossOrigin
-    @DeleteMapping("/log/{id}")
-    public void deleteLog(@PathVariable int id) {
-        logService.deleteLog(id);
-    }
+//    @CrossOrigin
+//    @DeleteMapping("/log/{id}")
+//    public void deleteLog(@PathVariable int id) {
+//        logService.deleteLog(id);
+//    }
 }

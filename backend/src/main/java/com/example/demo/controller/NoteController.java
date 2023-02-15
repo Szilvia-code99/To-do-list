@@ -31,11 +31,8 @@ public class NoteController {
 
     @CrossOrigin
     @GetMapping("/note/{id}")
-    public NoteDTO getNoteById(@PathVariable int id) {
-        if (noteService.getNoteById(id).isPresent()) {
-            return NoteMapper.modelToDto(noteService.getNoteById(id).get());
-        }
-        throw new EntityNotFoundException(id);
+    public NoteDTO getNoteById(@PathVariable int id) throws ClassNotFoundException {
+            return NoteMapper.modelToDto((Note) noteService.getNoteById(id));
     }
 
     @CrossOrigin
